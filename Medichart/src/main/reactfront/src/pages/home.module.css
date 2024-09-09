@@ -1,0 +1,59 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.featureContainer {
+  background-image: url("../111.png");
+  background-size: cover;
+  background-position: center;
+  padding: 150px;
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+  height: 220px;
+  opacity: 0;
+  animation: fadeIn 0.8s ease-in-out forwards;
+}
+
+.featureItem {
+  background-color: #1a76d1;
+  padding: 17px;
+  border-radius: 20px;
+  width: 270px;
+  height: 250px;
+  text-align: center;
+  color: white;
+  margin-top: 200px;
+}
+
+.featureItem p {
+  margin-top: 30px;
+}
+
+@media (max-width: 768px) {
+  .featureContainer {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+  }
+
+  .featureItem {
+    width: 80%;
+    margin-top: 20px;
+    margin-bottom: 0;
+  }
+}
+.mainLink {
+  text-decoration: none;
+  color: white;
+  display: block;
+}
+.featureContainer .featureItem:hover {
+  transform: translateY(-20px);
+  box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.2);
+}

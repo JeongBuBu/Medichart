@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>공지사항 폼</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<h1 th:text="${notice.id != null} ? '공지사항 수정' : '새 공지사항 추가'"></h1>
+
+<form th:action="@{${notice.id != null} ? '/admin/notices/edit/' + ${notice.id} : '/admin/notices/new'}" th:object="${notice}" method="post">
+    <label for="title">제목:</label>
+    <input type="text" id="title" th:field="*{title}" required />
+
+    <label for="content">내용:</label>
+    <textarea id="content" th:field="*{content}" required></textarea>
+
+    <button type="submit" th:text="${notice.id != null} ? '수정' : '추가'"></button>
+</form>
+
+<a href="/admin/noticelist">목록으로 돌아가기</a>
+</body>
+</html>

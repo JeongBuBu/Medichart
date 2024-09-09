@@ -1,0 +1,22 @@
+body {
+  margin: 0;
+  font-family: "NEXONLv1GothicRegular", "NEXONLv1GothicBold";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+.color {
+  color: red;
+}
+@font-face {
+  font-family: "NEXONLv1GothicBold";
+  src: url(./fonts/NEXONLv1GothicBold.ttf) format(truetype);
+}
+@font-face {
+  font-family: "NEXONLv1GothicRegular";
+  src: url(./fonts/NEXONLv1GothicRegular.ttf) format(truetype);
+}

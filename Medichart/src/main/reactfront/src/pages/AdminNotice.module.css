@@ -1,0 +1,35 @@
+/* .All_Container {
+  display: flex;
+} */
+.noticeForm {
+  display: flex;
+}
+.sectionLeft {
+  width: 300px;
+  padding: 20px;
+  margin-left: 30px;
+  margin-top: 200px;
+}
+.sectionLeft ul {
+  list-style: none;
+  text-align: left;
+}
+.sectionLeft li {
+  color: black;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ccc;
+}
+
+.link:hover {
+  color: #1a76d1;
+}
+.Container2 {
+  width: 800px;
+  margin: 140px 40px 40px 280px;
+}
+.noticetitle {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

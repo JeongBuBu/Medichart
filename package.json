@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.5.2",
+    "react-datepicker": "^7.3.0",
+    "react-router-dom": "^6.24.1",
+    "recharts": "^2.12.7",
+    "tesseract.js": "^5.1.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^9.7.0"
+  }
+}

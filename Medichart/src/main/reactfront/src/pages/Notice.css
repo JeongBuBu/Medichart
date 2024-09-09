@@ -1,0 +1,31 @@
+.notice {
+  margin-top: 20px;
+}
+
+.notice-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.notice-table th,
+.notice-table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+.notice-header {
+  cursor: pointer;
+  background-color: #f9f9f9;
+}
+
+.notice-header:hover {
+  background-color: #f1f1f1;
+}
+
+.notice-content {
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-top: none;
+}

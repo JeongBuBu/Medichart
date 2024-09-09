@@ -1,0 +1,396 @@
+.common-width {
+  width: 100%; /* 디자인에 맞게 조정 */
+  max-width: 800px; /* 컨테이너의 최대 너비와 동일하게 설정 */
+}
+.container {
+  display: flex;
+}
+.sectionLeft {
+  width: 20%;
+  padding: 20px;
+  margin-left: 30px;
+  margin-top: 200px;
+}
+.sectionLeft ul {
+  list-style: none;
+  text-align: left;
+}
+.sectionLeft li {
+  color: black;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ccc;
+}
+
+.link:hover {
+  color: #1a76d1;
+}
+
+.side {
+  font-size: 18px;
+  font-weight: bold;
+  border-bottom: 2px solid #161e4b;
+  padding-bottom: 20px;
+  margin-left: 30px;
+}
+
+/*  */
+.inner {
+  position: static;
+  width: auto;
+  max-width: 930px;
+  padding: 0 10px;
+  margin-left: 100px;
+  /* border: 1px solid #ccc; */
+}
+.out {
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 50px;
+  margin-bottom: 50px;
+}
+
+.title {
+  color: black;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  margin-top: 80px;
+}
+
+.title__table1 {
+  width: 100%;
+  border-collapse: collapse;
+}
+.tbody_1 tr td {
+  padding: 10px;
+  padding-bottom: 30px;
+  /* vertical-align: top; */
+}
+
+.title__1_a {
+  /* width: 50%; */
+}
+.tit {
+  /* margin-left: 20px; */
+  font-weight: bold;
+  padding-left: 20px;
+  /* border-top: 1px solid #ccc; */
+}
+
+.inputtext1 {
+  width: 70px;
+  margin-right: 4px;
+}
+.inputtext2 {
+  width: 100px;
+  margin-right: 30px;
+}
+
+.label {
+  width: 200px;
+  margin-right: 10px;
+}
+.label_top {
+  width: 70px;
+  margin-right: 4px;
+}
+
+/* 비만도 측정 */
+.title__1 {
+  padding: 15px 39px;
+  color: #fff;
+  background-color: #161e4b;
+  font-size: 17px;
+  margin-top: 20px;
+  /* font-weight: bold; */
+}
+
+.textContainer {
+  width: 100%;
+  padding-bottom: 15px;
+  color: #4e4e4e;
+  margin-top: 15px;
+  margin-bottom: 40px;
+  font-size: 14px;
+  padding-left: 10px;
+  /* border-bottom: 1px solid #ccc; */
+  /* padding-right: 170px; */
+}
+.textContainer1 {
+  width: 100%;
+  /* padding-bottom: 15px; */
+  color: #4e4e4e;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  font-size: 14px;
+  /* padding-left: 10px; */
+  /* padding: 5px 10px 0 15px; */
+  /* border-bottom: 1px solid #ccc; */
+  margin-left: 20px;
+  padding-bottom: 10px;
+  /* padding-right: 170px; */
+  padding-left: 5px;
+}
+
+.inputContainer {
+  display: flex;
+  align-items: center;
+  padding: 10px 0 15px 0;
+  margin-left: 20px;
+  margin-right: 20px;
+  /* justify-content: space-between; */
+  position: relative;
+}
+.inputContainer2 {
+  display: flex;
+  align-items: center;
+  margin-left: 30px;
+  margin-right: 20px;
+
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-right: 110px;
+  /* justify-content: space-between; */
+  /* border-bottom: 1px solid #ccc; */
+}
+.inputContainer2_1 {
+  display: flex;
+  align-items: center;
+  margin-left: 30px;
+  margin-right: 20px;
+  margin-bottom: 30px;
+
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-right: 110px;
+}
+.inputContainer_c {
+  display: flex;
+  align-items: center;
+  margin-top: 85px;
+  margin-left: 38px;
+  position: relative;
+}
+p {
+  margin-right: 10px;
+}
+em {
+  margin-left: 10px;
+  /* color: #767676; */
+  font-size: 14px;
+}
+
+/* 체질량지수 textbox */
+.pb10 {
+  margin-left: 18px;
+}
+
+.cham {
+  margin-left: 10px;
+}
+
+.ti_a1_1 {
+  /* border: 1px solid lightgrey;
+  height: 40px;
+  padding: 0 10px;
+  border-radius: 5px; */
+  border: 1px solid lightgrey;
+  height: 40px;
+  padding: 0 10px;
+  border-radius: 5px;
+  width: 180px;
+  box-sizing: border-box;
+}
+
+/* 검진결과 확인 및 질병예측 */
+.title__2 {
+  padding: 15px 39px;
+  color: #fff;
+  background-color: #161e4b;
+  font-size: 17px;
+  margin-top: 20px;
+  /* font-weight: bold; */
+}
+
+/* 옵션사항, 민간 검진기관 검진 내역 결과 입력 */
+.title__3 {
+  padding: 15px 39px;
+  color: #fff;
+  background-color: #161e4b;
+  font-size: 17px;
+  margin-top: 20px;
+}
+
+.registerButton {
+  position: relative;
+  border: 0;
+  padding: 15px 25px;
+  display: inline-block;
+  text-align: center;
+  background-color: #1a76d1;
+  color: #fff;
+  font-weight: bold;
+  margin-left: 400px;
+  /* margin-left: 852px; */
+  margin-bottom: 200px;
+  font-size: 14px;
+}
+
+/* 흡연, 음주 여부 */
+.inputRow {
+  /* display: flex; */
+  /* justify-content: space-between; */
+  margin-top: 10px;
+}
+.radioGroup1 {
+  /* display: flex; */
+  flex-direction: row;
+  /* margin-left: 30px; */
+  /* margin-top: 10px; */
+}
+.radioGroup2 {
+  /* display: flex; */
+  flex-direction: row;
+  /* margin-left: 30px; */
+  margin-top: 10px;
+}
+
+.radioGroup label {
+  margin-right: 20px;
+  /* margin-left: 30px; */
+}
+.labelAndRadios {
+  display: flex;
+  align-items: center;
+}
+
+.label_s {
+  /* text-align: left; */
+  margin-left: 30px;
+  width: 177px;
+  /* padding-left: 20px;
+  padding-right: 20px; */
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+.label_d {
+  /* text-align: left; */
+  margin-top: 40px;
+  margin-left: 30px;
+  width: 177px;
+  margin-bottom: 30px;
+}
+.radioLabel_y {
+  margin-left: 20px;
+}
+.radioLabel_n {
+  margin-left: 100px;
+}
+
+/* 연령대 -- 성별 */
+/* 숫자 입력 필드에서 화살표를 숨김 */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Internet Explorer 및 Edge에서 화살표를 숨김 */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* 기본 폼 스타일 */
+.defaultForm {
+  padding: 5px;
+  font-size: 16px;
+}
+
+/* 연령대랑 성별!! */
+.textContainer_top {
+  width: 100%;
+  padding-bottom: 15px;
+  color: #4e4e4e;
+  /* margin-top: 15px; */
+  /* margin-bottom: 40px; */
+  font-size: 14px;
+  padding-left: 10px;
+  /* border-bottom: 1px solid #ccc; */
+  /* padding-right: 170px; */
+  margin-left: 20px;
+}
+
+.titleTop {
+  padding-right: 20px;
+  padding-left: 10px;
+  margin-left: 30px;
+}
+.topline {
+  border: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+  height: 160px;
+}
+.error {
+  color: red;
+  font-size: 12px;
+  margin-top: 70px;
+  margin-left: 80px;
+  position: absolute;
+  /* bottom: -20px;  */
+  left: 0;
+  /* color: #ff0000;
+  font-size: 14px; */
+}
+.error2 {
+  color: red;
+  font-size: 12px;
+  margin-top: 70px;
+  margin-left: 135px;
+  position: absolute;
+  /* bottom: -20px;  */
+  left: 0;
+  /* color: #ff0000;
+  font-size: 14px; */
+}
+.tiA1 {
+  border: 1px solid lightgrey;
+  height: 40px;
+  padding: 0 10px;
+  border-radius: 5px;
+  width: 180px;
+  box-sizing: border-box;
+}
+
+.dataBox {
+  /* display: flex; */
+  /* flex-direction: row; */
+  align-items: flex-start;
+  margin-right: 20px;
+}
+.inputGroup {
+  flex-direction: row;
+  margin-top: 50px;
+  margin-bottom: 10px;
+}
+.genderGroup {
+  display: flex;
+  flex-direction: row;
+  /* align-items: flex-start; */
+  margin-right: 30px;
+  margin-top: 65px;
+}
+.bgchk1 {
+  margin-right: 130px;
+}
+.bgchk2 {
+  margin-right: 80px;
+}
+.radiog1 {
+  width: 20px;
+}
+.radiog2 {
+  width: 20px;
+}

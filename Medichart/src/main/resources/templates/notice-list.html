@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>공지사항 목록</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<h1>공지사항 목록</h1>
+
+<form action="/admin/noticeList" method="get">
+    <input type="text" name="search" placeholder="검색어 입력" th:value="${search}"/>
+    <button type="submit">검색</button>
+</form>
+
+<a href="/admin/notice/new">새 공지사항 추가</a>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>제목</th>
+        <th>내용</th>
+        <th>작성일</th>
+        <th>작업</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="notice : ${noticePage.content}">
+        <td th:text="${notice.id}"></td>
+        <td th:text="${notice.title}"></td>
+        <td th:text="${notice.content}"></td>
+        <td th:text="${#temporals.format(notice.createdDate, 'yyyy-MM-dd HH:mm')}"></td>
+        <td>
+            <a th:href="@{/admin/notices/edit/{id}(id=${notice.id})}">수정</a>
+            <a th:href="@{/admin/notices/delete/{id}(id=${notice.id})}" onclick="return confirm('정말 삭제하시겠습니까?');">삭제</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<div>
+    <a th:if="${noticePage.hasPrevious()}" th:href="@{/admin/notices/list(page=${noticePage.number - 1}, size=${noticePage.size}, search=${search})}">이전</a>
+    <span>페이지 [[${noticePage.number + 1}]]</span>
+    <a th:if="${noticePage.hasNext()}" th:href="@{/admin/notices/list(page=${noticePage.number + 1}, size=${noticePage.size}, search=${search})}">다음</a>
+</div>
+</body>
+</html>

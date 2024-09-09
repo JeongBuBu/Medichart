@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        .chatbot-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+            height: 500px;
+            z-index: 1000;
+            overflow: hidden;
+            border: 1px solid #ccc;
+            display: flex;
+            flex-direction: column;
+        }
+        .chat-window {
+            flex: 1;
+            padding: 10px;
+            overflow-y: auto;
+            border-bottom: 1px solid #ccc;
+        }
+        .input-container {
+            display: flex;
+        }
+        .input-container input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-top: 1px solid #ccc;
+        }
+        .input-container button {
+            padding: 10px;
+            border: none;
+            border-top: 1px solid #ccc;
+            cursor: pointer;
+        }
+        .message {
+            margin: 5px 0;
+        }
+        .message.user {
+            text-align: right;
+            color: blue;
+        }
+        .message.bot {
+            text-align: left;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+<div class="chatbot-container">
+    <div class="chat-window" id="chat-window">
+        <!-- Chat messages will be appended here -->
+    </div>
+    <div class="input-container">
+        <input type="text" id="user-input" placeholder="Type your message here...">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+</div>
+
+<script>
+    async function sendMessage() {
+        const inputField = document.getElementById('user-input');
+        const message = inputField.value.trim();
+        if (!message) return;
+
+        appendMessage('user', message);
+
+        try {
+            const response = await fetch('/chatbot', { // 포트 3001로 변경
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ message: message })
+            });
+
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+
+            const data = await response.json();
+            appendMessage('bot', data.response);
+        } catch (error) {
+            console.error('Error:', error);
+        } finally {
+            inputField.value = '';
+        }
+    }
+
+    function appendMessage(sender, message) {
+        const chatWindow = document.getElementById('chat-window');
+        const messageElement = document.createElement('div');
+        messageElement.classList.add('message', sender);
+        messageElement.innerText = message;
+        chatWindow.appendChild(messageElement);
+        chatWindow.scrollTop = chatWindow.scrollHeight;
+    }
+
+    // Add keydown event listener to handle Enter key press
+    document.getElementById('user-input').addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' && !event.shiftKey) { // Check for Enter key and avoid Shift + Enter
+            event.preventDefault(); // Prevent default newline behavior
+            sendMessage();
+        }
+    });
+</script>
+</body>
+</html>

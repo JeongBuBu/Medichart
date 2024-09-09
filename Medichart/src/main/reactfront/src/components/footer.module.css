@@ -1,0 +1,62 @@
+/* .footer {
+  background-color: #d0e5ff;
+  color: #000000;
+  text-align: center;
+  padding: 40px 0;
+  height: 40px;
+  margin: 0;
+  position: absolute;
+  bottom: 0; 
+  width: 100%; 
+} */
+.footer {
+  background-color: #d0e5ff;
+  color: #000000;
+  text-align: center;
+  padding: 40px 0 0 0;
+  /* height: 100px; 푸터의 높이 지정 */
+  width: 100%; /* 페이지 너비를 가득 채움 */
+  margin-top: auto; /* 자동 마진을 사용하여 푸터를 하단으로 이동 */
+}
+
+.contents {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.logo {
+  width: 50px; /* 로고 크기 조정 */
+  margin-right: 10px; /* 로고와 텍스트 사이 간격 */
+}
+
+.title {
+  display: flex; /* 플렉스 박스로 설정 */
+  align-items: center; /* 수직 정렬 */
+  justify-content: flex-start; /* 수평 왼쪽 정렬 */
+  width: 100%; /* 가로 전체 너비 사용 */
+}
+
+.title p {
+  font-size: 16px;
+  margin: 0;
+}
+
+.middle {
+  font-size: 12px; /* 폰트 크기 조정 */
+  margin-top: 25px; /* 간격조정 */
+}
+.middle p {
+  margin: 0;
+}
+
+.privacyLink {
+  color: black;
+  text-decoration: underline;
+  cursor: pointer;
+  position: absolute; /* 절대 위치 설정 */
+  bottom: 0; /* 하단 정렬 */
+  left: 10px; /* 왼쪽 정렬 */
+}

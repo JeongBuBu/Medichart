@@ -1,0 +1,32 @@
+.outline {
+  width: 1000px;
+  margin-left: 60px;
+}
+.outline h2 {
+  margin-left: 30px;
+}
+.Map {
+  width: 600px;
+  height: 500px;
+  margin-left: 30px;
+  float: right;
+  margin-top: 20px;
+}
+.outline ul {
+  text-align: left;
+  overflow-y: scroll;
+  height: 400px;
+  margin-top: 95px;
+
+  border: 1px solid #ccc;
+  padding-top: 20px;
+}
+.hospital_list {
+  border: 1px solid #d0e5ff;
+  background-color: #1a76d1;
+  color: white;
+  border-radius: 4px;
+  margin: 0 5px 20px 0;
+  font-size: 14px;
+  padding: 5px 8px;
+}

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Sign Up</title>
+    <style>
+        html, body {
+            font-family: Arial, sans-serif;
+        }
+
+        form {
+            margin: 20px;
+        }
+
+        label {
+            display: inline-block;
+            width: 150px;
+            text-align: right;
+            margin-right: 10px;
+        }
+
+        input {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            font-size: 14px;
+            margin-left: 10px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #mail_number {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<h1>Sign Up</h1>
+<form th:action="@{/signup}" th:object="${user}" method="post">
+    <div>
+        <label for="userID">User ID:</label>
+        <input type="text" id="userID" th:field="*{userID}" required/>
+    </div>
+    <div>
+        <label for="pwd">Password:</label>
+        <input type="password" id="pwd" th:field="*{pwd}" required/>
+    </div>
+    <div>
+        <label for="userName">User Name:</label>
+        <input type="text" id="userName" th:field="*{userName}" required/>
+    </div>
+    <div>
+        <label for="userEmail">User Email:</label>
+        <input type="email" id="userEmail" th:field="*{userEmail}" required/>
+        <button type="button" id="sendCodeButton">인증 번호 발송</button>
+    </div>
+    <div id="mail_number">
+        <label for="verificationCode">Verification Code:</label>
+        <input type="text" id="verificationCode" placeholder="Enter Verification Code" required/>
+    </div>
+    <div>
+        <button type="submit">Sign Up</button>
+    </div>
+</form>
+
+<script>
+    document.getElementById('sendCodeButton').addEventListener('click', function(event) {
+        event.preventDefault();  // 기본 동작 방지
+
+        var email = document.getElementById('userEmail').value;
+        if (!email) {
+            alert('Please enter your email address.');
+            return;
+        }
+
+        fetch('/api/v1/email/send', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ 'email': email })
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to send verification code');
+                }
+                return response.text();
+            })
+            .then(message => {
+                alert(message);
+                document.getElementById('mail_number').style.display = 'block';
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again.');
+            });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+.inquiry p {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #777;
+}
+
+.inquiry-form .form-group {
+  margin-bottom: 20px;
+  display: flex;
+}
+
+.inquiry-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.inquiry-form input[type="text"] .inquiry-form textarea.content-textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+.inquiry-form textarea.content-textarea {
+  height: 150px;
+  resize: vertical;
+}
+
+.inquiry-form button {
+  width: 100px;
+  padding: 10px 10px;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  margin-left: 90%;
+}
+
+.inquiry-form button:hover {
+  background-color: #0056b3;
+}

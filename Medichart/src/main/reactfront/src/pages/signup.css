@@ -1,0 +1,28 @@
+.subtitle {
+  margin-top: -20px;
+  color: grey;
+}
+.line {
+  border-top: 2px dashed grey;
+  width: 24%;
+  margin: 0 auto;
+}
+.signupForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  cursor: pointer;
+}
+.signupForm .button {
+  border-radius: 0px;
+  text-decoration: none;
+}
+
+.signupForm img {
+  width: 310px;
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}

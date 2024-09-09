@@ -1,0 +1,81 @@
+/* Mypage.css */
+
+.mypage-container {
+  width: 40%; /* 너비 유지 */
+  margin: 0 auto; /* 수평 중앙 정렬 유지 */
+  padding: 10px; /* 패딩 유지 */
+  background-color: #f9f9f9;
+  font-family: Arial, sans-serif;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: left;
+  margin-bottom: 15px; /* 여백 줄이기 */
+}
+
+.profile-section, .social-login-section, .delete-account-section {
+  background-color: white;
+  padding: 15px; /* 패딩 줄이기 */
+  margin-bottom: 10px; /* 섹션 간 여백 유지 */
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h3 {
+  margin-bottom: 3px; /* 여백 줄이기 */
+  font-size: 16px; /* 필요에 따라 조정 */
+}
+
+.profile-info {
+  margin-bottom: 3px; /* 여백 줄이기 */
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px; /* 여백 줄이기 */
+}
+
+.label {
+  font-weight: bold;
+}
+
+/* 버튼 스타일 수정 */
+.edit-button, .social-button {
+  background-color: #007bff;
+  border: none;
+  padding: 8px 16px; /* 패딩을 줄여서 버튼 크기 축소 */
+  margin-top: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  color: white;
+  font-size: 13px; /* 글자 크기 조정 */
+  transition: background-color 0.3s ease;
+}
+
+.edit-button:hover, .social-button:hover {
+  background-color: #0056b3;
+}
+
+.delete-button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  margin-top: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+  background-color: #c82333;
+}
+
+.social-buttons {
+  display: flex;
+  gap: 10px;
+}

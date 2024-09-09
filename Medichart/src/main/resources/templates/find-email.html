@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>이메일 찾기</title>
+    <link rel="stylesheet" href="/css/css/styles.css">
+</head>
+<body>
+<div class="container">
+    <h1>이메일 찾기</h1>
+    <form action="/api/auth/findEmails" method="post">
+        <label for="name">이름:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="birthdate">생년월일:</label>
+        <input type="date" id="birthdate" name="birthdate" required>
+
+        <button type="submit">이메일 찾기</button>
+    </form>
+
+    <div th:if="${emails != null}">
+        <h2>찾은 이메일 목록:</h2>
+        <ul>
+            <li th:each="email : ${emails}" th:text="${email}"></li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

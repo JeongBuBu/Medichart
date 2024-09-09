@@ -1,0 +1,60 @@
+.container {
+    display: flex;
+}
+.container h2 {
+    border: 0;
+    background-color: transparent;
+    font-size: 20px;
+    padding-top: 30px;
+    padding-left: 28px;
+    font-weight: bold;
+}
+.inner {
+    float: left;
+    margin: 100px 60px 0 20px;
+    padding-left: -30px;
+    padding-right: 20px;
+    background-color: 000;
+    border-radius: 20px;
+}
+.inner ul {
+    list-style: none;
+}
+.inner #line {
+    border-top: 2px solid black;
+    padding-left: 20px;
+    margin-left: 30px;
+  }
+.inner li {
+    padding-top: 10px;
+    margin-bottom: 20px;
+    font-size: large;
+    font-weight: bold;
+    margin-left: -50px;
+}
+  
+.link {
+    text-decoration: none;
+    color: black;
+}
+
+.link:hover {
+    color: #1a76d1;
+}
+.chartContainer {
+    display: flex;
+    margin-top: 50px; /* 차트와 메뉴 사이의 간격 조정 */
+}
+.button{
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+}
+.button:hover{
+    color: #1a76d1;
+}
+.chart-item {
+    flex: 1;
+    margin-right: 10px;
+}

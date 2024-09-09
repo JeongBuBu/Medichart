@@ -1,0 +1,27 @@
+.all {
+  text-align: center;
+  margin-top: 200px;
+}
+
+.all h1 {
+  font-weight: bold;
+  color: #1a76d1;
+  font-size: 60px;
+}
+.all p {
+  font-size: 22px;
+}
+.goHome {
+  font-weight: bold;
+  font-size: large;
+  width: 100px;
+  background-color: #1a76d1;
+  color: white;
+  box-sizing: border-box;
+  padding: 20px 20px;
+  margin-left: 47%;
+  margin-top: 20px;
+}
+.goHome_Link {
+  text-decoration: none;
+}

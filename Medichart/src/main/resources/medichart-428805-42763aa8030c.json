@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "medichart-428805",
+  "private_key_id": "42763aa8030c9b84225c590acc118a383aa0668b",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCH8tUcIxGkZfYs\nMPDXwUSGM5MzqrNwA5OZZyfxDo43AgtCydpZLmauh4Di6RHCyIGS3Sq4XN0gchid\nM8gKjzVMiyT3nwdX1Rx9pNmjtRIada1RlsewBTE6zAK0XiszMlU9IIznQA/dqK1w\nI3gXCz0NNYxEz07Hfweuk04LoGrY37iJyA3KOwwtB9hrJ1rlFw824vo6HcNwtSUa\nznJYJsRzHboE04n2tBquTSqoA3VwpaDOBW5HIe43Xi5sibJTJTP1gRF0DyT+7tQg\nXQL4sV3XHg+mU/D2Q7deFb3iQ9oTxWUwpe//qeNYzuEduspLlkyhExxcIn3vouoJ\nfi61CJgdAgMBAAECggEACym1YLTAeMSmjMUNVv9Xpm1gY5hbWOdHnLZhC+TWE048\n/nmfTuiwexmaoQc3niGOAjExlic0lmVyqqCF3ILF2Eh/UJXjqc1QpEB/s8w6dacU\nBDm39owhRA1ca326rl7ZAPFF9fccq7weAbHn5ScsbC6UG1JVIFcd77JzcMugpQ4b\nGP26/GB2FWFUF7zixZlK7kw1F1vQeQWIPIeFbQke3Bgfn8HPwnCbAxNjllMZ1/zT\nj1kc9fPxbdVOjnn8jegscBEU6hCLpCPQYeuqoAzGEyNN3wK7Sm1lDPV2DgHq9Om6\nbLdTYMr6LSWK7qXtFOMzLSJec5wD+P1zxlvROe3sAQKBgQC/HvsfkcZzgrAu2FOn\n2X9SlbckSz4zU4gny0B1i988NbsKvOe5ljofxhQ3DEK0uRvA8nAMjqVf8A0+o56f\nCVWlIPjXDujOab8ad9kc0lNDUvhQNutYakR9886MXAhez6dVJmFKOBs7XoXkAYLp\nK8QltpkH7c1E5SMGAZw3fUGfrQKBgQC2GTD1mtw/1ybAe/InIReVtB02bfE0StAR\nw4O+7ZXfRSwV6jtAEEjhXD87M6op/T89aEz+j9lRjkpCEA9W6KqH13DnJzylxe0J\nTmFN3rikis4q5qBuT7TpAHxUoD1WqN+uDXuzGBBKeivvNc2FhpAOSh4w0QnDFBKx\nXCLPXV4oMQKBgQCQUkPN/hW+ylRiu4bIfExSP64xoQQSXCS38Br36KylWempXScb\nFN9FeR1wyDhjIllb5XdJdDpbbPmDcKjqbXEYJgLi22Zf4KinwxLXWdf4QeIzKJWl\niXG5Lu+tPB4yAlrYyQe0tROTTHiMybtiemM/G1kKDL/yI5nEAllF6bcxbQKBgHQT\nBLlZ+FEdZQ9HMqksl+sOP5zFYf4yPgVEuoMG0QTcA+kIQLJqbvpwIcIsAaj4S8pp\n5MJTkXRCHiWUNSLx9lnWw5ok0azdyGWpN686bDo+XILONa97UVdAvv/2kILf7Iz2\n/UXA7gl7bOvzQMl/Z+4j4rC9XtqhvfSeRXYnDvDRAoGAe0lON5aA8XmC/75pYqmw\nuL6vEKCUpQKg3BnycT8H/b5GOvof3vX/G++YECzjcPMf4/cmpDOO/IqwTzHC70E2\nm7o1tOyRZbSSK6BkS6vfsg15tG2g8U/z3mTxhYJBZrTE2yGsdQkBJ9k6fv8AiqBE\nOtqxE42ZudQGwpJUKQSNN/g=\n-----END PRIVATE KEY-----\n",
+  "client_email": "medichart@medichart-428805.iam.gserviceaccount.com",
+  "client_id": "105659178077313283804",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/medichart%40medichart-428805.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
