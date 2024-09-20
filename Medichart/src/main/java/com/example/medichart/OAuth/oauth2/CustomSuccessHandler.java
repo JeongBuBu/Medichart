@@ -13,7 +13,6 @@ import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.util.Collection;
-import java.util.Iterator;
 
 @Component
 public class CustomSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
@@ -26,26 +25,24 @@ public class CustomSuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
-        // OAuth2User
         CustomOAuth2User customUserDetails = (CustomOAuth2User) authentication.getPrincipal();
+        String username = customUserDetails.getUsername();
 
-        String username = customUserDetails.getUsername(); // 소셜 로그인 시 username 사용
-
-        // 사용자 권한(Role) 추출
         Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
-        Iterator<? extends GrantedAuthority> iterator = authorities.iterator();
-        GrantedAuthority auth = iterator.next();
-        String role = auth.getAuthority();
+        String role = authorities.isEmpty() ? "ROLE_USER" : authorities.iterator().next().getAuthority();
 
-        // JWT 생성
-        String token = jwtUtil.createJwt(username, role, 60 * 60 * 60 * 60L, true);  // 소셜 로그인임을 표시 (isSocialLogin = true)
+        String token = jwtUtil.createJwt(username, role, 60 * 60 * 60 * 60L, true); // 소셜 로그인 표시
 
-        // 쿠키에 JWT를 저장
         Cookie cookie = new Cookie("authToken", token);
         cookie.setHttpOnly(true);
+        cookie.setSecure(true); // HTTPS에서만 전송
         cookie.setPath("/");
         cookie.setMaxAge(3600); // 1시간
         response.addCookie(cookie);
+
+        // 디버깅을 위한 로그 추가
+        System.out.println("JWT: " + token);
+        System.out.println("Cookie: " + cookie.getValue());
 
         // 리다이렉션 처리 (프론트엔드 페이지 URL로 수정)
         response.sendRedirect("http://localhost:3000/");

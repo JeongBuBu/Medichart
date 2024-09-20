@@ -8,6 +8,10 @@ import com.example.medichart.UserLogin.repository.NormalUserRepository;
 import com.example.medichart.UserLogin.service.JoinService;
 import com.example.medichart.UserLogin.service.LoginService;
 import com.example.medichart.UserLogin.service.UserService;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -67,8 +71,22 @@ public class AuthController {
     }
 
     @PostMapping("/logout")
-    public ResponseEntity<Void> logout() {
-        // 로그아웃 구현 (JWT 무효화 등)
-        return ResponseEntity.ok().build();
+    public ResponseEntity<Void> logout(HttpServletRequest request, HttpServletResponse response) {
+        // 세션 무효화
+        HttpSession session = request.getSession(false);
+        if (session != null) {
+            session.invalidate(); // 세션 무효화
+        }
+
+        // JWT 토큰 무효화 (필요하다면)
+        // 예를 들어, Redis 또는 데이터베이스에 저장된 블랙리스트를 사용하여 토큰 무효화 로직 추가
+
+        // 쿠키 삭제 (필요한 경우)
+        Cookie cookie = new Cookie("JSESSIONID", null);
+        cookie.setPath("/");
+        cookie.setMaxAge(0); // 즉시 만료
+        response.addCookie(cookie);
+
+        return ResponseEntity.ok().build(); // 로그아웃 성공 응답
     }
 }
