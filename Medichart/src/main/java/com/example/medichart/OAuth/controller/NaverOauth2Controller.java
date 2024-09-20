@@ -1,4 +1,3 @@
-
 package com.example.medichart.OAuth.controller;
 
 import com.example.medichart.OAuth.dto.NaverResponse;

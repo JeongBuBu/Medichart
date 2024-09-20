@@ -1,6 +1,7 @@
 package com.example.medichart.UserLogin.jwt;
 
 
+import com.example.medichart.JWT.JWTUtil;
 import com.example.medichart.UserLogin.dto.CustomUserDetails;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.FilterChain;
@@ -55,17 +56,17 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
         // 로그 추가
         System.out.println("Successfully authenticated email: " + email);
 
+        // 사용자 권한(Role) 추출
         Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
         String role = authorities.iterator().next().getAuthority();
 
-        // JWT 토큰 생성
-        String token = jwtUtil.createJwt(email, role, 60 * 60 * 10L);
+        // JWT 토큰 생성 (일반 로그인임을 표시)
+        String token = jwtUtil.createJwt(email, role, 60 * 60 * 10L, false);  // 일반 로그인임을 나타내기 위해 isSocialLogin = false
 
-        // JSON 응답으로 토큰을 반환
-        response.setContentType("application/json");
-        response.getWriter().write("{\"token\": \"" + token + "\"}");
+        // JWT를 Authorization 헤더에 추가
+        response.setHeader("Authorization", "Bearer " + token);
 
-        // 추가 로그
+        // 로그 추가
         System.out.println("JWT Token 생성: " + token);
     }
 
@@ -74,6 +75,7 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
         // 로그 추가
         System.out.println("Authentication failed for email: " + request.getParameter("email"));
 
+        // 실패 시 401 상태 코드 반환
         response.setStatus(401);
     }
 }

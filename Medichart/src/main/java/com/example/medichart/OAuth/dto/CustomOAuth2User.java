@@ -1,4 +1,3 @@
-
 package com.example.medichart.OAuth.dto;
 
 import org.springframework.security.core.GrantedAuthority;

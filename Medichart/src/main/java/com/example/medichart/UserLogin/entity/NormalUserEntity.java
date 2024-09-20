@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @Entity
 @Setter
 @Getter
-public class UserEntity {
+public class NormalUserEntity {
 
 
     @Id

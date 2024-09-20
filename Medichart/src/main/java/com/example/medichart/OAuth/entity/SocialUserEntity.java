@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserEntity {
+public class SocialUserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,3 +30,4 @@ public class UserEntity {
         this.createdDate = LocalDateTime.now();
     }
 }
+

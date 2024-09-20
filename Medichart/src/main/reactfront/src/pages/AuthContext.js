@@ -1,51 +1,61 @@
 import React, { createContext, useState, useEffect } from 'react';
-import axiosInstance from './axiosInstance'; // axiosInstance 파일 경로를 지정합니다.
 
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const [user, setUser] = useState(null); // user 상태 추가
+    const [userId, setUserId] = useState(null);
+    const [username, setUsername] = useState(''); // 사용자 이름 상태 추가
 
     useEffect(() => {
-        const token = localStorage.getItem('authToken');
-        if (token) {
-            fetchUserProfile(token);
-        } else {
-            handleLogout();
-        }
+        fetch('http://localhost:3000/profile', { credentials: 'include' })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Fetched profile data:', data);
+                if (data.username) {
+                    setIsLoggedIn(true);
+                    setUserId(data.userId); // 데이터에 userId가 포함되어 있어야 함
+                    setUsername(data.username);
+                } else {
+                    setIsLoggedIn(false);
+                    setUserId(null);
+                    setUsername('');
+                }
+            })
+            .catch(error => {
+                console.error('Fetch error:', error);
+                setIsLoggedIn(false);
+                setUserId(null);
+                setUsername('');
+            });
     }, []);
 
-    const fetchUserProfile = async (token) => {
-        try {
-            const response = await axiosInstance.get('/api/user/profile');
-            const data = response.data;
-            if (data && data.email) {
-                setIsLoggedIn(true);
-                setUser(data); // 사용자 정보 설정
-            } else {
-                handleLogout();
-            }
-        } catch (error) {
-            console.error('사용자 프로필 요청 중 오류:', error);
-            handleLogout();
-        }
-    };
-
-    const login = (token, user) => {
+    const login = (userId, username) => {
         setIsLoggedIn(true);
-        setUser(user);
-        localStorage.setItem('authToken', token);
+        setUserId(userId);
+        setUsername(username);
     };
 
-    const handleLogout = () => {
-        setIsLoggedIn(false);
-        setUser(null);
-        localStorage.removeItem('authToken');
+    const logout = () => {
+        fetch('http://localhost:3000/logout', {
+            method: 'POST',
+            credentials: 'include'
+        })
+            .then(() => {
+                setIsLoggedIn(false);
+                setUserId(null);
+                setUsername('');
+            })
+            .catch(err => console.error('Failed to log out:', err));
     };
 
     return (
-        <AuthContext.Provider value={{ user, isLoggedIn, login, logout: handleLogout }}>
+        <AuthContext.Provider value={{ isLoggedIn, userId, username, login, logout }}>
             {children}
         </AuthContext.Provider>
     );

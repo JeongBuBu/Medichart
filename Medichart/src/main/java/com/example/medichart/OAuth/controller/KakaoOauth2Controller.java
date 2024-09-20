@@ -1,4 +1,3 @@
-
 package com.example.medichart.OAuth.controller;
 
 import com.example.medichart.OAuth.dto.KakaoResponse;
@@ -34,4 +33,3 @@ public class KakaoOauth2Controller {
         }
     }
 }
-

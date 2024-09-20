@@ -1,7 +1,6 @@
-
 package com.example.medichart.OAuth.dto;
 
-import com.example.medichart.OAuth.entity.UserEntity;
+import com.example.medichart.OAuth.entity.SocialUserEntity;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -10,11 +9,11 @@ import java.util.Collection;
 
 public class CustomUserDetails  implements UserDetails {
 
-    private final UserEntity userEntity;
+    private final SocialUserEntity socialUserEntity;
 
-    public CustomUserDetails(UserEntity userEntity) {
+    public CustomUserDetails(SocialUserEntity socialUserEntity) {
 
-        this.userEntity = userEntity;
+        this.socialUserEntity = socialUserEntity;
     }
 
 
@@ -28,7 +27,7 @@ public class CustomUserDetails  implements UserDetails {
             @Override
             public String getAuthority() {
 
-                return userEntity.getRole();
+                return socialUserEntity.getRole();
             }
         });
 
@@ -38,13 +37,13 @@ public class CustomUserDetails  implements UserDetails {
     @Override
     public String getPassword() {
 
-        return userEntity.getPassword();
+        return socialUserEntity.getPassword();
     }
 
     @Override
     public String getUsername() {
 
-        return userEntity.getUsername();
+        return socialUserEntity.getUsername();
     }
 
     @Override

@@ -1,7 +1,7 @@
 package com.example.medichart.UserLogin.service;
 
+import com.example.medichart.JWT.JWTUtil;
 import com.example.medichart.UserLogin.dto.LoginRequest;
-import com.example.medichart.UserLogin.jwt.JWTUtil;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -25,15 +25,18 @@ public class LoginService {
 
     public String authenticate(LoginRequest loginRequest) {
         try {
+            // 이메일과 비밀번호로 인증 시도
             Authentication authentication = authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(loginRequest.getEmail(), loginRequest.getPassword())
             );
 
+            // 인증된 사용자 정보 가져오기
             UserDetails userDetails = (UserDetails) authentication.getPrincipal();
             String email = userDetails.getUsername();
             String role = userDetails.getAuthorities().iterator().next().getAuthority();
 
-            return jwtUtil.createJwt(email, role, 60 * 60 * 10L); // 10시간 유효
+            // JWT 생성 (일반 로그인이므로 isSocialLogin = false)
+            return jwtUtil.createJwt(email, role, 60 * 60 * 10L, false); // 10시간 유효
         } catch (BadCredentialsException e) {
             throw new RuntimeException("Invalid credentials", e);
         }

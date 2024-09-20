@@ -1,4 +1,3 @@
-
 package com.example.medichart.OAuth.controller;
 
 import com.example.medichart.OAuth.dto.GoogleResponse;
@@ -31,4 +30,3 @@ public class GoogleOauth2Controller {
         }
     }
 }
-

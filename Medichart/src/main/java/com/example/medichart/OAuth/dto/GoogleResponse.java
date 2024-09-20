@@ -1,5 +1,6 @@
-
 package com.example.medichart.OAuth.dto;
+
+import com.example.medichart.OAuth.dto.OAuth2Response;
 
 import java.util.Map;
 
@@ -46,4 +47,3 @@ public class GoogleResponse implements OAuth2Response {
         return name.toString();
     }
 }
-

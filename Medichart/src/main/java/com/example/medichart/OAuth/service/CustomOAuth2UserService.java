@@ -2,8 +2,8 @@ package com.example.medichart.OAuth.service;
 
 
 import com.example.medichart.OAuth.dto.*;
-import com.example.medichart.OAuth.entity.UserEntity;
-import com.example.medichart.OAuth.repository.UserRepository;
+import com.example.medichart.OAuth.entity.SocialUserEntity;
+import com.example.medichart.OAuth.repository.SocialUserRepository;
 import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;
 import org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest;
 import org.springframework.security.oauth2.core.OAuth2AuthenticationException;
@@ -13,11 +13,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class CustomOAuth2UserService extends DefaultOAuth2UserService {
 
-    private final UserRepository userRepository;
+    private final SocialUserRepository socialUserRepository;
 
-    public CustomOAuth2UserService(UserRepository userRepository) {
+    public CustomOAuth2UserService(SocialUserRepository socialUserRepository) {
 
-        this.userRepository = userRepository;
+        this.socialUserRepository = socialUserRepository;
     }
 
     @Override
@@ -39,17 +39,17 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
             return null;
         }
         String username = oAuth2Response.getProvider()+" "+oAuth2Response.getProviderId();
-        UserEntity existData = userRepository.findByUsername(username);
+        SocialUserEntity existData = socialUserRepository.findByUsername(username);
 
         if (existData == null) {
 
-            UserEntity userEntity = new UserEntity();
-            userEntity.setUsername(username);
-            userEntity.setEmail(oAuth2Response.getEmail());
-            userEntity.setName(oAuth2Response.getName());
-            userEntity.setRole("ROLE_USER");
+            SocialUserEntity socialUserEntity = new SocialUserEntity();
+            socialUserEntity.setUsername(username);
+            socialUserEntity.setEmail(oAuth2Response.getEmail());
+            socialUserEntity.setName(oAuth2Response.getName());
+            socialUserEntity.setRole("ROLE_USER");
 
-            userRepository.save(userEntity);
+            socialUserRepository.save(socialUserEntity);
 
             UserDTO userDTO = new UserDTO();
             userDTO.setUsername(username);
@@ -63,7 +63,7 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
             existData.setEmail(oAuth2Response.getEmail());
             existData.setName(oAuth2Response.getName());
 
-            userRepository.save(existData);
+            socialUserRepository.save(existData);
 
             UserDTO userDTO = new UserDTO();
             userDTO.setUsername(existData.getUsername());

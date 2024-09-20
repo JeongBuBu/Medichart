@@ -1,29 +1,58 @@
 package com.example.medichart.OAuth.service;
 
 import com.example.medichart.OAuth.dto.GoogleResponse;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.Map;
 
 @Service
 public class GoogleOAuth2Service {
 
-    private final String userInfoUri = "https://www.googleapis.com/oauth2/v3/userinfo";
+    @Value("${spring.security.oauth2.client.registration.google.client-id}")
+    private String clientId;
+
+    @Value("${spring.security.oauth2.client.registration.google.client-secret}")
+    private String clientSecret;
+
+    @Value("${spring.security.oauth2.client.registration.google.redirect-uri}")
+    private String redirectUri;
+
+    @Value("${spring.security.oauth2.client.provider.google.token-uri}")
+    private String accessTokenUri;
+
+    @Value("${spring.security.oauth2.client.provider.google.user-info-uri}")
+    private String userInfoUri;
+
+    private final RestTemplate restTemplate;
+
+    public GoogleOAuth2Service(RestTemplate restTemplate) {
+        this.restTemplate = restTemplate;
+    }
 
     public GoogleResponse getUserInfo(String code) {
-        // RestTemplate을 사용하여 사용자 정보를 가져옴
-        RestTemplate restTemplate = new RestTemplate();
-        String accessToken = getAccessToken(code); // 이 메서드를 통해 액세스 토큰을 가져오는 로직 필요
+        String accessToken = getAccessToken(code);
 
-        String url = userInfoUri + "?access_token=" + accessToken;
+        String url = UriComponentsBuilder.fromHttpUrl(userInfoUri)
+                .queryParam("access_token", accessToken)
+                .toUriString();
+
         Map<String, Object> response = restTemplate.getForObject(url, Map.class);
-
         return new GoogleResponse(response);
     }
 
     private String getAccessToken(String code) {
-        // 액세스 토큰을 가져오는 로직 필요
-        return "access_token"; // 액세스 토큰을 가져오는 실제 로직을 구현해야 함
+        String url = UriComponentsBuilder.fromHttpUrl(accessTokenUri)
+                .queryParam("grant_type", "authorization_code")
+                .queryParam("client_id", clientId)
+                .queryParam("client_secret", clientSecret)
+                .queryParam("redirect_uri", redirectUri)
+                .queryParam("code", code)
+                .toUriString();
+
+        Map<String, Object> response = restTemplate.getForObject(url, Map.class);
+        return (String) response.get("access_token");
     }
 }
